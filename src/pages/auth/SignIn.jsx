@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 const SignUp = () => {
   return (
     <Layout>
-      <div className="flex flex-col md:flex-row gap-[20px] p-6">
+      <div className="flex flex-col md:flex-row gap-[20px] p-6 justify-center items-left md:items-center">
         <div>
           <img src={AuthImage} alt="" />
         </div>

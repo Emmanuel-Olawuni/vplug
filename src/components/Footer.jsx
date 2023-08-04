@@ -7,7 +7,7 @@ import { SiMinutemailer } from "react-icons/si";
 const Footer = () => {
   return (
     <>
-      <div className="bg-black text-white flex flex-col md:flex-row py-6 pb-14 px-4 gap-[20px] justify-around">
+      <div className="bg-black text-white flex flex-col md:flex-row py-6 pb-14 px-4 gap-[20px] justify-around footer">
         <div className="flex flex-col gap-[10px]">
           <div className=" text-[22px] font-extrabold"> EXCLUSIVE</div>
           <span>Subscribe</span>
@@ -20,7 +20,7 @@ const Footer = () => {
             <button type="submit">
               <SiMinutemailer
                 size="20"
-                className="absolute top-0 right-5 transform translate-x-[50%] translate-y-[50%] z-10 bg-black w-[30px]"
+                className="absolute top-0 left-[9em] md:right-5 transform translate-x-[50%] translate-y-[50%] z-10 bg-black w-[30px]"
                 color="white"
               />
             </button>

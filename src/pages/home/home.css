@@ -83,3 +83,16 @@
 
 
 }
+.footer a:hover{
+  text-decoration: underline;
+  text-underline-offset: 2;
+}
+::placeholder{
+  padding-left: 1em;
+}
+
+.card-shadow{
+  box-shadow: -7px 6px 14px 5px rgba(232,230,230,0.89);
+-webkit-box-shadow: -7px 6px 14px 5px rgba(232,230,230,0.89);
+-moz-box-shadow: -7px 6px 14px 5px rgba(232,230,230,0.89);
+}

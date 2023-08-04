@@ -11,7 +11,7 @@ const Header = () => {
   };
   return (
     <>
-      <div className="flex md:flex-row justify-between md:justify-around relative gap-[12px] p-4 mt-2  md:m-3  md:items-center ">
+      <div className="flex md:flex-row justify-between md:justify-around relative gap-[12px] p-4 mt-2  md:m-3  md:items-center  border-b border-[#f5f5f5] ">
         <div className=" text-[22px] font-extrabold"> EXCLUSIVE</div>
         <div className=" hidden md:flex  font-[400] text-[min(12vw , 2.5rem)] gap-[12px] md:gap-[40px] ">
           <Link to="/" className="hover:underline">
