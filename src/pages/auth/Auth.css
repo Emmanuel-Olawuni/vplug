@@ -1,0 +1,18 @@
+.form-input{
+    border-bottom: 1px solid #d2d2d2;
+    width: 100%;
+    margin-bottom: 1em;
+}
+.form-input:focus{
+    outline: none;
+}
+.form-input::placeholder{
+    font-size: 13px;
+    color: #d2d2d2;
+    
+}
+.form-input:focus .form-input::placeholder{
+    font-size: 4px;
+    position: absolute;
+    bottom: 0;
+}

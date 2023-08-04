@@ -1,0 +1,85 @@
+.hero-image {
+  background-position: top center;
+  background-size: cover;
+}
+.arrows{
+    border: 1px solid #F5F5F5;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #F5F5F5;
+    
+}
+.hero-text {
+  position: absolute;
+
+  top: 50%;
+
+    right: 10px;
+  text-align: right;
+  transform: translate(0, -50%);
+  z-index: 4;
+  
+}
+.hero-text p {
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+}
+.hero-text button {
+    color: white;
+    border: 1px solid #fff;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+.hero-text button:hover{
+  color: black;
+  background-color: white;
+  transition: 200ms;
+}
+.card-icon{
+  background-color: #fff;
+  padding: 10px;
+  color: black;
+  font-size: 40px;
+
+  border-radius: 50%;
+  object-fit: contain;
+  cursor: pointer;
+}
+.card-image img{
+  object-fit: contain;
+}
+.scrool::-webkit-scrollbar{
+  display: none;
+  scroll-behavior: smooth;
+ 
+  transition: 1s;
+}
+.category-card:hover .caticon {
+  color: #fff;
+  
+}
+.caticon{
+  font-size: 20px;
+  color:black;
+  cursor: pointer;
+
+}
+.banner-image img{
+  z-index: 3;
+}
+.circle {
+  background: #D9D9D9;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.6;
+  position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50% , -50%);
+  z-index: 1;
+
+
+}
