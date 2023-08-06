@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/auth/SignIn";
 import Shop from "./pages/shop/Shop";
 import Login from "./pages/auth/Login";
+import SingleProduct from "./components/SingleProduct";
 
 import Contact from "./pages/Contact/Contact";
 
@@ -15,6 +16,7 @@ function App() {
       <Route path="/sign-up" element={<SignUp />}/>
       <Route path="/login" element={<Login />}/>
       <Route path="/contact" element={<Contact />}/>
+      <Route path="/product/:id" element={<SingleProduct />}/>
     </Routes>
   );
 }
