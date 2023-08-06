@@ -20,6 +20,9 @@ const Header = () => {
           <Link to="/contact" className="hover:underline">
             Contact
           </Link>
+          <Link to="/shop" className="hover:underline">
+            Shop
+          </Link>
           <Link to="/about" className="hover:underline">
             About
           </Link>
@@ -49,9 +52,12 @@ const Header = () => {
           <FaAlignJustify onClick={toggle} size={25} />
         </div>
         {open && (
-          <div className="menu absolute top-[4em]  flex items-center justify-center flex-col gap-[5vw] shadow-xl rounded-[10px] bg-[#fff] w-[100%] py-[20px] z-10 ">
+          <div className="menu absolute top-[4em]  flex items-center justify-around flex-col gap-[5vw] shadow-xl rounded-[10px] bg-[#fff] w-[100%] py-[20px] z-10 ">
             <div className="flex flex-row gap-[2em]">
               <Link to="/">Home</Link>
+              <Link to="/shop" >
+            Shop
+          </Link>
               <Link to="/contact">Contact</Link>
               <Link to="/about">About</Link>
               <Link to="/sign-up">SignUp</Link>

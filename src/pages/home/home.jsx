@@ -1,5 +1,5 @@
 import "./home.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Topbar from "../../components/Topbar";
 import Header from "../../components/Header";
 import Hero from "../../components/Hero";
@@ -13,7 +13,15 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { SiAdguard } from 'react-icons/si'
 import {TfiHeadphoneAlt} from 'react-icons/tfi'
 import Footer from "../../components/Footer";
+
 const Home = () => {
+  const [products , setProducts] = useState([])
+  const [loading , isLoading] = useState(true)
+  useEffect((
+    fetch('https://fakestoreapi.com/products?limit=5')
+            .then(res=>res.json())
+            .then(data=>setProducts(data))
+  ) , [])
   return (
     <>
       <Topbar />
@@ -57,11 +65,7 @@ const Home = () => {
       />
       <div className="flex w-[100%] flex-wrap whitespace-nowrap justify-around ">
         <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+      
       </div>
       <div className=" bg-black  bg-no-repeat bg-contain relative p-[2em]  md:p-[4em] flex flex-col md:flex-row gap-[2em] justify-between">
         <div className="flex flex-col gap-[3vw] w-[auto]">

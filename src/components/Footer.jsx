@@ -3,6 +3,7 @@ import AppleLogo from "../assets/apple.png";
 import GoogleLogo from "../assets/google.png";
 import QRCode from "../assets/Qrcode.png";
 import { SiMinutemailer } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -46,7 +47,7 @@ const Footer = () => {
             My Account
           </a>
           <a href="" className="">
-            Login / Register
+            <Link to="/login">Login</Link> / <Link to="/sign-up"> Register</Link>
           </a>
           <a href="" className="">
             Cart

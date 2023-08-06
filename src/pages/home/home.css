@@ -96,3 +96,12 @@
 -webkit-box-shadow: -7px 6px 14px 5px rgba(232,230,230,0.89);
 -moz-box-shadow: -7px 6px 14px 5px rgba(232,230,230,0.89);
 }
+.card-image{
+  height: 400px;
+  width: auto;
+}
+.card-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

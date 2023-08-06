@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/auth/SignIn";
 import Shop from "./pages/shop/Shop";
 import Login from "./pages/auth/Login";
+
 import Contact from "./pages/Contact/Contact";
 
 function App() {

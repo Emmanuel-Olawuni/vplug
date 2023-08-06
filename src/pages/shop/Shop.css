@@ -1,0 +1,16 @@
+
+.card-skeleton{
+    height: 600px;
+    width: 400px;
+   
+}
+.card-container{
+    height: 600px;
+    width: 400px;
+}
+.card-title {
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+}
