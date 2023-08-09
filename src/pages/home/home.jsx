@@ -45,7 +45,7 @@ const Home = () => {
         title="Today's Sale"
       />
         {loading && (
-          <div className="flex gap-[10px] justify-center items-center">
+          <div className="flex gap-[10px] justify-center items-center flex-col md:flex-row">
             <CardSkeleton cardcount={3} />
           </div>
         )}
@@ -76,7 +76,7 @@ const Home = () => {
       />
       <div className="flex w-[100%] flex-wrap whitespace-nowrap justify-around ">
       {loading && (
-          <div className="flex gap-[10px] justify-center items-center">
+          <div className="flex gap-[10px] justify-center items-center flex-col md:flex-row">
             <CardSkeleton cardcount={3} />
           </div>
         )}
