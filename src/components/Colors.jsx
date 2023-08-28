@@ -5,9 +5,9 @@ const Colors = () => {
   return (
     <>
     {
-        colors.map((color) => (
+        colors.map((color , i) => (
 
-            <div className="color_circle bg-[color]"></div>
+            <div key={i} className="color_circle bg-[color]"></div>
         ))
     }
       

@@ -17,7 +17,10 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
         <div className="card-details bg-white flex flex-col gap-[12px]">
-          <p className="text-[18px] font-semibold card-title ">{title}</p>
+          <p className="text-[18px] font-semibold card-title ">
+      <a href={`/product/${id}`}>{title}</a>
+
+          </p>
           <div className="flex">
             <span className="mr-3 text-red-500 font-semibold">$ {price}</span>
             <span className=" line-through font-semibold">$ {price}</span>

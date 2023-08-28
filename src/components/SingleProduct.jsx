@@ -4,6 +4,8 @@ import StarRating from "./Star";
 import { BsHeart } from "react-icons/bs";
 import Size from "./Size";
 import Colors from "./Colors";
+import { useParams } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
 const SingleProduct = () => {
   const [value, setValue] = useState(1);
@@ -24,10 +26,21 @@ const SingleProduct = () => {
   const handleSize = (size) => {
     setSize(size);
   };
+  const [loading, isLoading] = useState(true);
 
-  const handleWishList = () => {
+  const handleWishList = () => {};
+  const [singleProduct, setsingleProduct] = useState([]);
+  const productId = useParams();
+  const id = productId.id;
 
-  }
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+      .then((response) => response.json())
+      .then((product) => {
+        isLoading(false);
+        setsingleProduct(product);
+      });
+  }, [id]);
 
   return (
     <Layout>
@@ -59,36 +72,32 @@ const SingleProduct = () => {
           </div>
         </div>
         <div className="middle_image h-[400px] md:h-[500px] md:w-[800px] flex-1">
-          <img
-            src="https://images.unsplash.com/photo-1532618793091-ec5fe9635fbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
-            alt=""
-          />
+          {<img src={singleProduct.image } alt="" />  ||  <Skeleton height={400} />} 
         </div>
         <div className="flex flex-col gap-[15px] w-[100%] md:w-[400px]">
-          <h1 className="text-[20px] font-bold ">Havic HV G-92 Gamepad</h1>
+          <h1 className="text-[20px] font-bold ">{singleProduct.title}</h1>
           <div className="flex gap-[3px]">
-            <StarRating rating={4.5} />
-            (20 reviews)
+            {/* <StarRating rating={singleProduct.rating.rate} /> 
+           ( {singleProduct.rating.count || <Skeleton />} reviews) */}
           </div>
           <div className="flex gap-[10px]">
-            <p className="text-[16px] font-semibold ">$ 192.00</p>{" "}
-            <p className="text-[16px] font-semibold line-through">$ 192.00</p>
+            <p className="text-[16px] font-semibold ">
+              $ {singleProduct.price || <Skeleton />}{" "}
+            </p>{" "}
+            <p className="text-[16px] font-semibold line-through">
+              
+             $ { singleProduct.price || <Skeleton />}
+            </p>
           </div>
           <div className="text-[16px] font-normal">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-            deleniti, in sit illum, doloremque soluta veniam voluptatum
-            doloribus neque suscipit beatae nobis sunt vitae perferendis cumque
-            quae fugiat iste magnam. Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Nisi tempora libero magni earum nobis, quaerat
-            voluptas sed rerum hic, error nulla animi aperiam reiciendis dolorem
-            nemo neque? Dolores, eos dolore.
+            {singleProduct.description || <Skeleton count={5} height={20}/>}
           </div>
           <hr />
           <div className="flex flex-col gap-[4px] ">
             <div className="flex">
               <p>Colours: </p>
               <div className="flex gap-[10px]">
-               <Colors />
+                <Colors />
               </div>
             </div>
             <div className="flex items-center gap-[4px]">
@@ -112,7 +121,7 @@ const SingleProduct = () => {
                   type="text"
                   readOnly
                   value={value}
-                  className="w-[100px] border border-black   h-[40px] flex justify-center items-center "
+                  className="w-[100px] border border-black   h-[40px] flex justify-center items-center text-center"
                 />
 
                 <button
