@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegHeart, FaAlignJustify } from "react-icons/fa";
+import Cartdropdown from "./Cartdropdown";
+import { CartContext } from "../contexts/cart.context";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!open);
   };
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+
+  const toggleCart = () => setIsCartOpen(!isCartOpen);
+
   return (
     <>
       <div className="flex md:flex-row justify-between md:justify-around relative gap-[12px] p-4 mt-2  md:m-3  md:items-center  border-b border-[#f5f5f5] ">
@@ -45,9 +51,21 @@ const Header = () => {
               />
             </div>
             <FaRegHeart size={23} cursor="pointer" title="Wishlist" />
-            <BsCart3 size={23} fontWeight={900} cursor="pointer" title="Cart" />
+            <div className="relative">
+            <BsCart3
+              
+              size={23}
+              fontWeight={900}
+              cursor="pointer"
+              title="Cart"
+              onClick={toggleCart}
+            />
+            {isCartOpen && <Cartdropdown />}
+            </div>
           </div>
         </div>
+
+        {/* mobile header  */}
         <div className="flex md:hidden">
           <FaAlignJustify onClick={toggle} size={25} />
         </div>
@@ -55,9 +73,7 @@ const Header = () => {
           <div className="menu absolute top-[4em]  flex items-center justify-around flex-col gap-[5vw] shadow-xl rounded-[10px] bg-[#fff] w-[100%] py-[20px] z-10 ">
             <div className="flex flex-row gap-[2em]">
               <Link to="/">Home</Link>
-              <Link to="/shop" >
-            Shop
-          </Link>
+              <Link to="/shop">Shop</Link>
               <Link to="/contact">Contact</Link>
               <Link to="/about">About</Link>
               <Link to="/sign-up">SignUp</Link>
