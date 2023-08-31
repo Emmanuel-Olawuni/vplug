@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsFillStarFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineEye } from "react-icons/ai";
 import StarRating from "./Star";
+import { CartContext } from "../contexts/cart.context";
 
 
 const ProductCard = ({ product }) => {
+  const {addItemtoCart} = useContext(CartContext);
+  const addProductToCart = () => addItemtoCart(product)
   const { id, title, price, image, rating, description, category } = product;
   return (
     <div>
@@ -13,7 +16,7 @@ const ProductCard = ({ product }) => {
         <div className="card-image bg-[#f5f5f5] relative group  ">
           <img src={image } alt="" />
           <div className="absolute bottom-0 w-[100%] cursor-pointer md:hidden group-hover:block bg-black text-white text-center font-medium p-3 duration-150">
-            <button>Add to cart</button>
+            <button onClick={ addProductToCart}>Add to cart</button>
           </div>
         </div>
         <div className="card-details bg-white flex flex-col gap-[12px]">

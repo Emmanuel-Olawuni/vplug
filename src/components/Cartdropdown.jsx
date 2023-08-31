@@ -1,12 +1,23 @@
-import React from 'react'
-import CartItems from './CartItems'
-
+import React, { useContext } from "react";
+import CartItems from "./CartItems";
+import { useNavigate} from 'react-router-dom'
+import { CartContext } from "../contexts/cart.context";
 const Cartdropdown = () => {
-  return (
-    <div className='absolute bg-white top-[30px] p-4 right-[10px] z-20 text-black border border-black rounded-[5px] shadow-2xl w-[200px]'>
-      <CartItems />
-    </div>
-  )
-}
+  const { cartItems } = useContext(CartContext);
+  const Navigate = useNavigate();
+  const goTo = () => Navigate('/checkout')
 
-export default Cartdropdown
+  return (
+    <div className="absolute bg-white top-[30px] p-4 right-[10px] z-20 text-black border border-black rounded-[5px] shadow-2xl w-[200px]">
+      <div className="h-[200px] overflow-auto">
+      {  console.log(cartItems)}
+        {cartItems.map((cartItem) => (
+          <CartItems cartItem={cartItem} />
+        ))}
+      </div>
+      <a className=" bg-red-500 p-2 text-white rounded-[5px] font-semibold text-[16px] cursor-pointer" onClick={goTo} > Go To Cart</a>
+    </div>
+  );
+};
+
+export default Cartdropdown;
