@@ -1,25 +1,15 @@
 import React, { useContext } from "react";
-import { BsFillStarFill } from "react-icons/bs";
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineEye } from "react-icons/ai";
-import StarRating from "./Star";
-import { CartContext } from "../contexts/cart.context";
-import { WishlistContext } from "../contexts/wishlist.context";
 
-const ProductCard = ({ product }) => {
-  const { addItemtoCart } = useContext(CartContext);
-  const { addItemstoList} = useContext(WishlistContext)
-  const WishlistHandler = () => addItemstoList(product);
-  const addProductToCart = () => {
-    const details= {
-      ...product ,
-      size: 'M',
-      quantity: 1
-    }
-    addItemtoCart(details)
-  };
-  const { id, title, price, image, rating  } = product;
+import StarRating from "../../components/Star";
+import { WishlistContext } from "../../contexts/wishlist.context";
+import { CartContext } from "../../contexts/cart.context";
+const Wishlist = () => {
+
+  const { wishlistItems } = useContext(WishlistContext);
+  const {addItemtoCart} = useContext(CartContext)
+ 
   return (
+   
     <div>
       <div className="card-container flex flex-col  relative w-[100%] md:w-[30vw] p-5 gap-[20px]">
         <div className="card-image bg-[#f5f5f5] relative group  ">
@@ -43,13 +33,10 @@ const ProductCard = ({ product }) => {
             <span className="font-semibold">{rating.count}</span>
           </span>
         </div>
-        <div className="card-absolute absolute flex flex-col justify-between h-[100px] right-10 top-12">
-          <FaRegHeart className="card-icon" onClick={WishlistHandler} />
-          {/* <AiOutlineEye className="card-icon" /> */}
-        </div>
+    
       </div>
     </div>
   );
 };
 
-export default ProductCard;
+export default Wishlist;

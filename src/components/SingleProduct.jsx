@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Layout from "./Layout";
 import StarRating from "./Star";
 import { BsHeart } from "react-icons/bs";
@@ -6,6 +6,7 @@ import Size from "./Size";
 import Colors from "./Colors";
 import { useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
+import { CartContext } from "../contexts/cart.context";
 
 const SingleProduct = () => {
   const [value, setValue] = useState(1);
@@ -27,7 +28,7 @@ const SingleProduct = () => {
     setSize(size);
   };
   const [loading, isLoading] = useState(true);
-
+  
   const handleWishList = () => {};
   const [singleProduct, setsingleProduct] = useState([]);
   const productId = useParams();
@@ -41,6 +42,19 @@ const SingleProduct = () => {
         setsingleProduct(product);
       });
   }, [id]);
+  const {addItemtoCart} = useContext(CartContext)
+  const addItemtoCartHandler = () => {
+    const Product ={
+      ...singleProduct, 
+      size: size,
+      quantity: value
+    }
+    
+  
+    addItemtoCart(Product)
+  
+  }
+    
 
   return (
     <Layout>
@@ -94,12 +108,7 @@ const SingleProduct = () => {
           </div>
           <hr />
           <div className="flex flex-col gap-[4px] ">
-            <div className="flex">
-              <p>Colours: </p>
-              <div className="flex gap-[10px]">
-                <Colors />
-              </div>
-            </div>
+           
             <div className="flex items-center gap-[4px]">
               <p>Size:</p>{" "}
               <div className="flex gap-[10px]">
@@ -132,7 +141,7 @@ const SingleProduct = () => {
                 </button>
               </div>
 
-              <button className="text-white bg-red-500 p-3 w-[200px] h-[40px] font-medium text-center rounded-[4px] ">
+              <button className="text-white bg-red-500 p-3 w-[200px] h-[40px] font-medium text-center rounded-[4px] " onClick={addItemtoCartHandler}>
                 Buy Now
               </button>
               <div className="border border-red-500 p-2 rounded-[5px] cursor-pointer ">
