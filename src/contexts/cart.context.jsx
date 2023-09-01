@@ -57,7 +57,7 @@ export const CartProvider = ({ children }) => {
     setCartItems(clearItems(cartItems, productToClear));
   };
   useEffect(() => {
-    const value = cartItems.reduce((x, y) => x + y.price, 0);
+    const value = cartItems.reduce((x, y) => x + y.price * y.quantity, 0);
     setcartTotal(value);
   }, [cartItems]);
   const value = {

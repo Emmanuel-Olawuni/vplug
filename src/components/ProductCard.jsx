@@ -5,19 +5,24 @@ import { AiOutlineEye } from "react-icons/ai";
 import StarRating from "./Star";
 import { CartContext } from "../contexts/cart.context";
 import { WishlistContext } from "../contexts/wishlist.context";
+import { useState } from "react";
 
 const ProductCard = ({ product }) => {
   const { addItemtoCart } = useContext(CartContext);
   const { addItemstoList} = useContext(WishlistContext)
-  const WishlistHandler = () => addItemstoList(product);
+  const WishlistHandler = () =>{ addItemstoList(product)};
+  const [check , setCheck] = useState(false)
   const addProductToCart = () => {
+    setCheck(!check);
     const details= {
       ...product ,
       size: 'M',
       quantity: 1
     }
     addItemtoCart(details)
+
   };
+  const bgColor = check ? '#db4444' : 'white'
   const { id, title, price, image, rating  } = product;
   return (
     <div>
@@ -44,7 +49,7 @@ const ProductCard = ({ product }) => {
           </span>
         </div>
         <div className="card-absolute absolute flex flex-col justify-between h-[100px] right-10 top-12">
-          <FaRegHeart className="card-icon" onClick={WishlistHandler} />
+          <FaRegHeart className="card-icon " onClick={WishlistHandler}  style={{backgroundColor: `${check ? '#db4444' : '#fff'}`}} />
           {/* <AiOutlineEye className="card-icon" /> */}
         </div>
       </div>

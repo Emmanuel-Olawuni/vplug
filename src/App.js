@@ -7,6 +7,7 @@ import Login from "./pages/auth/Login";
 import SingleProduct from "./components/SingleProduct";
 import Checkout from "./pages/checkout/checkout";
 import Wishlist from "./pages/checkout/Wishlist";
+import Invalid from "./pages/404/Invalid.page";
 
 import Contact from "./pages/Contact/Contact";
 
@@ -21,6 +22,7 @@ function App() {
       <Route path="/checkout" element={<Checkout />}/>
       <Route path="/wishlist" element={<Wishlist />}/>
       <Route path="/product/:id" element={<SingleProduct />}/>
+      <Route path="*"  element={<Invalid />} />
     </Routes>
   );
 }

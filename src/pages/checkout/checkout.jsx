@@ -7,7 +7,8 @@ const Checkout = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col md:flex-row w-full gap-[5px]">
+      <h4 className="flex justify-center text-[20px] font-bold">CART PAGE</h4>
+      <div className="flex flex-col md:flex-row w-full gap-[15px]">
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -43,7 +44,7 @@ const Checkout = () => {
           </div>
         </div>
         <div className="md:w-[20%]">
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-col">
             <p className="font-bold text-2xl">Total Summary</p>
             <p>${cartTotal}</p>
           </div>

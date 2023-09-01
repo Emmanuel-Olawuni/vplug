@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegHeart, FaAlignJustify } from "react-icons/fa";
@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <>
       <div className="flex md:flex-row justify-between md:justify-around relative gap-[12px] p-4 mt-2  md:m-3  md:items-center  border-b border-[#f5f5f5] ">
-        <div className=" text-[22px] font-extrabold"> EXCLUSIVE</div>
+        <div className=" text-[22px] font-extrabold">EXCLUSIVE</div>
         <div className=" hidden md:flex  font-[400] text-[min(12vw , 2.5rem)] gap-[12px] md:gap-[40px] ">
           <Link to="/" className="hover:underline">
             Home
@@ -50,17 +50,18 @@ const Header = () => {
                 fontWeight={900}
               />
             </div>
-            <FaRegHeart size={23} cursor="pointer" title="Wishlist" />
+            <Link to="/wishlist">
+              <FaRegHeart size={23} cursor="pointer" title="Wishlist" />
+            </Link>
             <div className="relative">
-            <BsCart3
-              
-              size={23}
-              fontWeight={900}
-              cursor="pointer"
-              title="Cart"
-              onClick={toggleCart}
-            />
-            {isCartOpen && <Cartdropdown />}
+              <BsCart3
+                size={23}
+                fontWeight={900}
+                cursor="pointer"
+                title="Cart"
+                onClick={toggleCart}
+              />
+              {isCartOpen && <Cartdropdown />}
             </div>
           </div>
         </div>
@@ -92,8 +93,12 @@ const Header = () => {
                 />
               </div>
               <div className="flex gap-[12vw]">
-                <FaRegHeart size={23} />
-                <BsCart3 size={23} fontWeight={900} />
+                <Link to="/wishlist">
+                  <FaRegHeart size={23} cursor="pointer" title="Wishlist" />
+                </Link>
+                <Link to="/checkout">
+                  <BsCart3 size={23} fontWeight={900} />
+                </Link>
               </div>
             </div>
           </div>
